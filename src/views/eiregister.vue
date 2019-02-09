@@ -63,7 +63,7 @@ export default {
     return {
       venType: false,
       venID: null,
-      venIP: null,
+      vtnIP: null,
       vtnName: null,
       vtnPort: 8080
     };
