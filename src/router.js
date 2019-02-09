@@ -1,8 +1,10 @@
 import Vue from "vue";
 import Router from "vue-router";
+import VueHead from "vue-head";
 import Home from "./views/Home.vue";
 
 Vue.use(Router);
+Vue.use(VueHead);
 
 export default new Router({
   mode: "history",
@@ -14,6 +16,11 @@ export default new Router({
       component: Home
     },
     {
+      path: "/login",
+      name: "login",
+      component: () => import("./views/Login.vue")
+    },
+    {
       path: "/about",
       name: "about",
       // route level code-splitting
@@ -21,6 +28,11 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/About.vue")
+    },
+    {
+      path: "/eiregister",
+      name: "EiRegister",
+      component: () => import("./views/eiregister.vue")
     }
   ]
 });
