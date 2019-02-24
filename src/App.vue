@@ -86,9 +86,11 @@
 
 /* Set black background color, white text and some padding */
 footer {
-  background-color: #555;
-  color: white;
-  padding: 15px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  background: #ccc;
 }
 
 /* On small screens, set height to 'auto' for sidenav and grid */

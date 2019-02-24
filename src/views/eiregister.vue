@@ -4,6 +4,7 @@
       <div class="col-xs-12">
         <h3>Request Mesage Info</h3>
         <table class="table table-striped">
+          <colgroup></colgroup>
           <thead>
             <tr>
               <th>VEN ID</th>
@@ -11,6 +12,7 @@
               <th>VEN Type</th>
               <th>VTN IP</th>
               <th>VTN Port</th>
+              <th>-</th>
             </tr>
           </thead>
           <tbody>
@@ -41,6 +43,11 @@
                   </label>
                 </div>
               </td>
+              <td>
+                <div>
+                  <button>Reqest</button>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -48,10 +55,20 @@
     </div>
     <div class="row">
       <div class="col-xs-6">
-        <h3>Request Message</h3>
+        <div>
+          <h3>Request Message</h3>
+        </div>
+        <div>
+          <textarea name="reqResult" v-model="reqResult" class="resultTextArea" readonly></textarea>
+        </div>
       </div>
       <div class="col-xs-6">
-        <h3>Response Message</h3>
+        <div>
+          <h3>Response Message</h3>
+        </div>
+        <div>
+          <textarea name="resResp" v-model="respResult" class="resultTextArea" readonly></textarea>
+        </div>
       </div>
     </div>
   </div>
@@ -65,9 +82,22 @@ export default {
       venID: null,
       vtnIP: null,
       vtnName: null,
+      venName: "",
+      repResult: "",
+      respResult: "",
       vtnPort: 8080
     };
   },
+  methods() {
+    sendEIMsg: () => {};
+  },
+
   mounted() {}
 };
 </script>
+
+<style>
+.resultTextArea {
+  width: 100%;
+}
+</style>
