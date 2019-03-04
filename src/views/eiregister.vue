@@ -45,7 +45,7 @@
               </td>
               <td>
                 <div>
-                  <button>Reqest</button>
+                  <button @click="sendEIMsg()">Reqest</button>
                 </div>
               </td>
             </tr>
@@ -75,23 +75,50 @@
 </template>
 
 <script>
+// import axios from "axios";
 export default {
   data() {
     return {
       venType: false,
-      venID: null,
-      vtnIP: null,
-      vtnName: null,
-      venName: "",
-      repResult: "",
+      venID: "venID-1",
+      vtnIP: "127.0.0.1",
+      vtnName: "111-222-333-44-55",
+      venName: "venName-1",
       respResult: "",
-      vtnPort: 8080
+      vtnPort: 8081,
+      reqResult: ""
     };
   },
-  methods() {
-    sendEIMsg: () => {};
-  },
+  methods: {
+    sendEIMsg: function() {
+      // const URL = "http://localhost:8081/eiregister";
+      var data = {
+        venID: this.venID,
+        venName: this.venName,
+        vtnIP: this.vtnIP,
+        vtnPort: this.vtnPort
+      };
 
+      this.reqResult = JSON.stringify(data);
+      var url = "http://" + this.vtnIP + ":" + this.vtnPort + "/eiregister";
+      console.log(url);
+      this.$http
+        .post(url, {
+          venID: this.venID,
+          venName: this.venName,
+          vtnIP: this.vtnIP,
+          vtnPort: this.vtnPort
+        })
+        .then(resp => {
+          console.log("resp : " + resp.toString());
+
+          this.respResult = JSON.stringify(resp);
+        })
+        .catch(resp => {
+          console.log("err : " + resp.toString());
+        });
+    }
+  },
   mounted() {}
 };
 </script>
