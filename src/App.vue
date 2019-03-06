@@ -28,6 +28,9 @@
             <li>
               <router-link to="/eiregister">EiRegister</router-link>
             </li>
+            <li>
+              <router-link to="/eiopt">EiOpt</router-link>
+            </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
